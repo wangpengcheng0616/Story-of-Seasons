@@ -4,7 +4,7 @@ using UnityEngine;
 // [RequireComponent(typeof(SpriteRenderer))]
 public class ItemFade : MonoBehaviour
 {
-    private SpriteRenderer[] m_spriteRenderer;
+    private SpriteRenderer[] m_SpriteRenderer;
     private Color m_ItemColor;
 
     private enum ItemState
@@ -15,7 +15,7 @@ public class ItemFade : MonoBehaviour
 
     private void Awake()
     {
-        m_spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
+        m_SpriteRenderer = GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void Fade(ItemState itemState, float duration)
@@ -30,7 +30,7 @@ public class ItemFade : MonoBehaviour
                 break;
         }
 
-        foreach (var spriteRender in m_spriteRenderer)
+        foreach (var spriteRender in m_SpriteRenderer)
         {
             spriteRender.DOColor(m_ItemColor, duration);
         }

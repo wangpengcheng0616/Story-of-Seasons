@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class SwitchBounds : MonoBehaviour
 {
-    private PolygonCollider2D m_polygonCollider2D;
+    private PolygonCollider2D m_PolygonCollider2D;
 
-    private CinemachineConfiner m_cinemachineConfiner;
+    private CinemachineConfiner m_CinemachineConfiner;
 
     private void Awake()
     {
-        m_cinemachineConfiner = GetComponent<CinemachineConfiner>();
+        m_CinemachineConfiner = GetComponent<CinemachineConfiner>();
     }
 
     private void Start()
@@ -19,8 +19,8 @@ public class SwitchBounds : MonoBehaviour
 
     private void SwitchConfinerShape()
     {
-        m_polygonCollider2D = GameObject.FindGameObjectWithTag("Bounds").GetComponent<PolygonCollider2D>();
-        m_cinemachineConfiner.m_BoundingShape2D = m_polygonCollider2D;
-        m_cinemachineConfiner.InvalidatePathCache(); // Change at  runtime
+        m_PolygonCollider2D = GameObject.FindGameObjectWithTag("Bounds").GetComponent<PolygonCollider2D>();
+        m_CinemachineConfiner.m_BoundingShape2D = m_PolygonCollider2D;
+        m_CinemachineConfiner.InvalidatePathCache(); // Change at  runtime
     }
 }
