@@ -73,5 +73,5 @@ crashlytics-build.properties
 
 # Other
 .DS_Store
-/[Pp]ackages
-.idea/.idea.Story-of-Seasons/.idea/workspace.xml
+/[Pp]ackages/
+/.idea/
