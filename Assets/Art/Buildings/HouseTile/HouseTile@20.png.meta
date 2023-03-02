@@ -3,7 +3,7 @@ guid: 08e068dcd0cbb42469d9275d6b0c667f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,7 +63,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -5267,8 +5266,8 @@ TextureImporter:
       HouseTile@20_32: -1925384838
       HouseTile@20_165: 1523954161
       HouseTile@20_37: -391985251
-      HouseTile@20_179: -1169586283
       HouseTile@20_119: -2081691893
+      HouseTile@20_179: -1169586283
       HouseTile@20_176: 1520083068
       HouseTile@20_234: 1521324714
       HouseTile@20_101: 1762036157
@@ -5322,10 +5321,10 @@ TextureImporter:
       HouseTile@20_193: 1561423483
       HouseTile@20_76: 935503204
       HouseTile@20_134: -1756836631
-      HouseTile@20_194: 709465603
       HouseTile@20_139: -1484907082
-      HouseTile@20_196: -1804081353
+      HouseTile@20_194: 709465603
       HouseTile@20_114: -152904965
+      HouseTile@20_196: -1804081353
       HouseTile@20_209: 1048097725
       HouseTile@20_171: -507634847
       HouseTile@20_57: 117090455

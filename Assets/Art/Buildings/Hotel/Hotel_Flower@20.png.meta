@@ -3,7 +3,7 @@ guid: 4519e3023f2944cecb7ed510f5d6bfdb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,7 +63,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -4516,6 +4515,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Hotel_Flower@20_188: -2022205339
       Hotel_Flower@20_82: 99211994
       Hotel_Flower@20_57: 97090913
       Hotel_Flower@20_154: 1376151246
@@ -4548,9 +4548,9 @@ TextureImporter:
       Hotel_Flower@20_135: 1600065949
       Hotel_Flower@20_19: 755877745
       Hotel_Flower@20_127: -515107291
-      Hotel_Flower@20_147: 548301525
-      Hotel_Flower@20_180: -1469312168
       Hotel_Flower@20_133: 495779469
+      Hotel_Flower@20_180: -1469312168
+      Hotel_Flower@20_147: 548301525
       Hotel_Flower@20_53: -359662806
       Hotel_Flower@20_128: 1011265597
       Hotel_Flower@20_74: 1462263490
@@ -4643,10 +4643,10 @@ TextureImporter:
       Hotel_Flower@20_20: -1468493863
       Hotel_Flower@20_132: 866712341
       Hotel_Flower@20_16: 1265092985
-      Hotel_Flower@20_207: -1956511996
+      Hotel_Flower@20_80: -1551509511
       Hotel_Flower@20_116: 1615514802
       Hotel_Flower@20_169: -2047009839
-      Hotel_Flower@20_80: -1551509511
+      Hotel_Flower@20_207: -1956511996
       Hotel_Flower@20_26: -1558493229
       Hotel_Flower@20_138: -1730104963
       Hotel_Flower@20_50: -741389473
@@ -4703,17 +4703,16 @@ TextureImporter:
       Hotel_Flower@20_137: 1778929932
       Hotel_Flower@20_84: 1692613023
       Hotel_Flower@20_52: 1663192286
-      Hotel_Flower@20_188: -2022205339
       Hotel_Flower@20_1: 543672482
-      Hotel_Flower@20_205: -646144295
       Hotel_Flower@20_42: -197006272
-      Hotel_Flower@20_85: -955590379
+      Hotel_Flower@20_205: -646144295
       Hotel_Flower@20_62: -760081526
-      Hotel_Flower@20_121: -1135935565
+      Hotel_Flower@20_85: -955590379
       Hotel_Flower@20_107: 850968283
+      Hotel_Flower@20_121: -1135935565
       Hotel_Flower@20_151: -1105356625
-      Hotel_Flower@20_140: -871352176
       Hotel_Flower@20_163: 1960995242
+      Hotel_Flower@20_140: -871352176
       Hotel_Flower@20_44: -1519345429
       Hotel_Flower@20_5: -2411848
       Hotel_Flower@20_65: -785368923

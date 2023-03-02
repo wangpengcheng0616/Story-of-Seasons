@@ -3,7 +3,7 @@ guid: 7073609df2c354df7b8f8722d67541bd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,7 +63,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -4542,8 +4541,8 @@ TextureImporter:
       Hotel@20_187: 1985928035
       Hotel@20_8: -1346903774
       Hotel@20_64: 842981493
-      Hotel@20_203: 664986782
       Hotel@20_112: -1119843562
+      Hotel@20_203: 664986782
       Hotel@20_92: 1798349187
       Hotel@20_196: 2029563006
       Hotel@20_84: -621179121
@@ -4623,10 +4622,10 @@ TextureImporter:
       Hotel@20_47: -261338144
       Hotel@20_171: -818927537
       Hotel@20_181: 1975290307
-      Hotel@20_13: 1015118528
+      Hotel@20_100: 1120081386
       Hotel@20_88: 1983445758
       Hotel@20_48: 800321728
-      Hotel@20_100: 1120081386
+      Hotel@20_13: 1015118528
       Hotel@20_87: -1979081915
       Hotel@20_156: 1735545374
       Hotel@20_143: -2090141280
@@ -4648,11 +4647,11 @@ TextureImporter:
       Hotel@20_2: -1144088091
       Hotel@20_157: 603211411
       Hotel@20_25: -1432510069
-      Hotel@20_149: -356692316
       Hotel@20_80: -1022662299
+      Hotel@20_149: -356692316
+      Hotel@20_135: 741282218
       Hotel@20_63: 1296739937
       Hotel@20_98: 1812935568
-      Hotel@20_135: 741282218
       Hotel@20_108: -1688874205
       Hotel@20_11: -119755889
       Hotel@20_160: -1405173743
