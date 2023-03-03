@@ -15,4 +15,11 @@ public static class EventHandler
     {
         GameDateEvent?.Invoke(hour, day, month, year, season);
     }
+
+    public static event Action<string> GameTransferEvent;
+
+    public static void CallGameTransferEvent(string sceneName)
+    {
+        GameTransferEvent?.Invoke(sceneName);
+    }
 }
