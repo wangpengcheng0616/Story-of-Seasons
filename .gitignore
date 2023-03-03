@@ -75,4 +75,4 @@ crashlytics-build.properties
 .DS_Store
 /[Pp]ackages/
 /.idea/
-/[Bb]uildWebGL/
+/[Bb]uild/
