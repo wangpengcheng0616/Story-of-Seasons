@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9662ae3f38bba446eabf716246edc03e
+guid: 3188772545270416289bb124fc58ac4a
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - iconfont
+  - Droid Sans Fallback
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

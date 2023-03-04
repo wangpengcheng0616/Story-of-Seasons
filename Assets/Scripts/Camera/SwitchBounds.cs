@@ -10,14 +10,10 @@ public class SwitchBounds : MonoBehaviour
     private void Awake()
     {
         m_CinemachineConfiner = GetComponent<CinemachineConfiner>();
+        EventHandler.GameSwitchBoundsEvent += OnGameSwitchBoundsEvent;
     }
 
-    private void Start()
-    {
-        SwitchConfinerShape();
-    }
-
-    private void SwitchConfinerShape()
+    private void OnGameSwitchBoundsEvent()
     {
         var obj = GameObject.FindGameObjectWithTag("Bounds");
         if (!ReferenceEquals(obj, null))
@@ -27,5 +23,10 @@ public class SwitchBounds : MonoBehaviour
 
         m_CinemachineConfiner.m_BoundingShape2D = m_PolygonCollider2D;
         m_CinemachineConfiner.InvalidatePathCache(); // Change at  runtime
+    }
+
+    private void OnDestroy()
+    {
+        EventHandler.GameSwitchBoundsEvent -= OnGameSwitchBoundsEvent;
     }
 }

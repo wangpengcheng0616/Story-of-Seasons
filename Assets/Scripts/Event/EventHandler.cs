@@ -22,4 +22,11 @@ public static class EventHandler
     {
         GameTransferEvent?.Invoke(sceneName);
     }
+
+    public static event Action GameSwitchBoundsEvent;
+
+    public static void CallGameSwitchBoundsEvent()
+    {
+        GameSwitchBoundsEvent?.Invoke();
+    }
 }

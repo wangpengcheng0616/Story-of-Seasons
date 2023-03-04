@@ -35,6 +35,7 @@ public class SceneController : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         Scene scene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
         SceneManager.SetActiveScene(scene);
+        EventHandler.CallGameSwitchBoundsEvent();
     }
 
     private IEnumerator SwitchScene(string sceneName)
