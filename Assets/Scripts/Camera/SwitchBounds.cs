@@ -10,15 +10,17 @@ public class SwitchBounds : MonoBehaviour
     private void Awake()
     {
         m_CinemachineConfiner = GetComponent<CinemachineConfiner>();
-        EventHandler.GameSwitchBoundsEvent += OnGameSwitchBoundsEvent;
+        EventHandler.GameSceneLoadEvent += OnGameSceneLoadEvent;
     }
 
-    private void OnGameSwitchBoundsEvent()
+    private void OnGameSceneLoadEvent()
     {
+        // Debug.LogError("//---1");
         var obj = GameObject.FindGameObjectWithTag("Bounds");
         if (!ReferenceEquals(obj, null))
         {
             m_PolygonCollider2D = obj.GetComponent<PolygonCollider2D>();
+            // Debug.LogError("//---2");
         }
 
         m_CinemachineConfiner.m_BoundingShape2D = m_PolygonCollider2D;
@@ -27,6 +29,6 @@ public class SwitchBounds : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventHandler.GameSwitchBoundsEvent -= OnGameSwitchBoundsEvent;
+        EventHandler.GameSceneLoadEvent -= OnGameSceneLoadEvent;
     }
 }

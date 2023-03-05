@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public static class EventHandler
 {
@@ -16,17 +17,39 @@ public static class EventHandler
         GameDateEvent?.Invoke(hour, day, month, year, season);
     }
 
-    public static event Action<string> GameTransferEvent;
+    public static event Action<string, Vector3> GameTransferEvent;
 
-    public static void CallGameTransferEvent(string sceneName)
+    public static void CallGameTransferEvent(string sceneName, Vector3 scenePosition)
     {
-        GameTransferEvent?.Invoke(sceneName);
+        GameTransferEvent?.Invoke(sceneName, scenePosition);
     }
 
-    public static event Action GameSwitchBoundsEvent;
+    public static event Action GameSceneUnloadEvent;
 
-    public static void CallGameSwitchBoundsEvent()
+    public static void CallGameSceneUnloadEvent()
     {
-        GameSwitchBoundsEvent?.Invoke();
+        GameSceneUnloadEvent?.Invoke();
+    }
+
+
+    public static event Action GameSceneLoadEvent;
+
+    public static void CallGameSceneLoadEvent()
+    {
+        GameSceneLoadEvent?.Invoke();
+    }
+
+    public static event Action<Vector3> GameMoveToPositionEvent;
+
+    public static void CallGameMoveToPositionEvent(Vector3 position)
+    {
+        GameMoveToPositionEvent?.Invoke(position);
+    }
+
+    public static event Action<float> GameUILoadingEvent;
+
+    public static void CallGameUILoadingEvent(float alpha)
+    {
+        GameUILoadingEvent?.Invoke(alpha);
     }
 }

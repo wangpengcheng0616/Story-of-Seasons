@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField] private string startScene;
-
     private void Awake()
     {
         InitScene();
@@ -14,20 +12,13 @@ public class SceneController : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(LoadScene(startScene));
+        EventHandler.CallGameSceneLoadEvent();
     }
 
-    private void Update()
+    private void InitScene()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            EventHandler.CallGameTransferEvent("HouseScene");
-        }
-    }
-
-    private static void InitScene()
-    {
-        SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(Settings.uiScene, LoadSceneMode.Additive);
+        StartCoroutine(LoadScene(Settings.fieldScene));
     }
 
     private IEnumerator LoadScene(string sceneName)
@@ -35,19 +26,24 @@ public class SceneController : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         Scene scene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
         SceneManager.SetActiveScene(scene);
-        EventHandler.CallGameSwitchBoundsEvent();
     }
 
-    private IEnumerator SwitchScene(string sceneName)
+    private IEnumerator SwitchScene(string sceneName, Vector3 scenePosition)
     {
+        // UnLoad Scene
+        EventHandler.CallGameSceneUnloadEvent();
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
+        // Load Scene
         yield return LoadScene(sceneName);
+        EventHandler.CallGameUILoadingEvent(0);
+        EventHandler.CallGameMoveToPositionEvent(scenePosition);
+        EventHandler.CallGameSceneLoadEvent();
     }
 
-    private void OnGameTransferEvent(string sceneName)
+    private void OnGameTransferEvent(string sceneName, Vector3 scenePosition)
     {
-        StartCoroutine(SwitchScene(sceneName));
+        StartCoroutine(SwitchScene(sceneName, scenePosition));
     }
 
     private void OnDestroy()

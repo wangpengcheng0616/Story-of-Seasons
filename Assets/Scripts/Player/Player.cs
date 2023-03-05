@@ -14,23 +14,34 @@ public class Player : MonoBehaviour
     private static readonly int InputX = Animator.StringToHash("InputX");
     private static readonly int InputY = Animator.StringToHash("InputY");
 
+    private bool m_CanInput = true;
 
     private void Awake()
     {
         m_PlayerRb = GetComponent<Rigidbody2D>();
 
         m_Animators = GetComponentsInChildren<Animator>();
+
+        EventHandler.GameSceneLoadEvent += OnGameSceneLoadEvent;
+        EventHandler.GameSceneUnloadEvent += OnGameSceneUnloadEvent;
+        EventHandler.GameMoveToPositionEvent += OnGameMoveToPositionEvent;
     }
 
     private void FixedUpdate()
     {
-        PlayerMove();
+        if (m_CanInput)
+        {
+            PlayerMove();
+        }
     }
 
     private void Update()
     {
-        PlayerInput();
-        SwitchAnimation();
+        if (m_CanInput)
+        {
+            PlayerInput();
+            SwitchAnimation();
+        }
     }
 
     private void PlayerInput()
@@ -66,8 +77,6 @@ public class Player : MonoBehaviour
         m_IsMoving = movementInput != Vector2.zero;
     }
 
-    public KeyCode KeyCode { get; }
-
     private void PlayerMove()
     {
         m_PlayerRb.MovePosition(m_PlayerRb.position + movementInput * (m_PlayerSpeed * Time.deltaTime));
@@ -84,5 +93,27 @@ public class Player : MonoBehaviour
                 animator.SetFloat(InputY, m_InputY);
             }
         }
+    }
+
+    private void OnGameSceneLoadEvent()
+    {
+        m_CanInput = true;
+    }
+
+    private void OnGameSceneUnloadEvent()
+    {
+        m_CanInput = false;
+    }
+
+    private void OnGameMoveToPositionEvent(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    private void OnDestroy()
+    {
+        EventHandler.GameSceneLoadEvent -= OnGameSceneLoadEvent;
+        EventHandler.GameSceneUnloadEvent -= OnGameSceneUnloadEvent;
+        EventHandler.GameMoveToPositionEvent -= OnGameMoveToPositionEvent;
     }
 }

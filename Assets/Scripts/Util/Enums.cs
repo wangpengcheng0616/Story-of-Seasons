@@ -5,3 +5,9 @@ public enum Season
     Autumn,
     Winter
 }
+
+public enum SceneName
+{
+    FieldScene,
+    HouseScene,
+}

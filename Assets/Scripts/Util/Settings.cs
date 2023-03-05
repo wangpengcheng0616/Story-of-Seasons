@@ -1,5 +1,8 @@
 public class Settings
 {
+    //Version
+    public const string version = "1.0.0";
+
     // ItemFade
     public const float fadeInDuration = 0.4f;
     public const float fadeOutDuration = 0.4f;
@@ -13,4 +16,9 @@ public class Settings
     public const int hourHold = 23;
     public const int dayHold = 30;
     public const int seasonHold = 3;
+
+    // Scene
+    public const string uiScene = "UIScene";
+    public const string fieldScene = "FieldScene";
+    public const string housecene = "HouseScene";
 }
