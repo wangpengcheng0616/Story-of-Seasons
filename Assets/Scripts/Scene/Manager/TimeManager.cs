@@ -16,7 +16,8 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
-        EventHandler.CallGameMinuteEvent(m_GameMinute, m_GameHour);
+        // EventHandler.CallGameMinuteEvent(m_GameMinute, m_GameHour);
+        EventCenter.BroadcastListener(EventType.EventGameMinute, m_GameMinute, m_GameHour);
         EventHandler.CallGameDateEvent(m_GameHour, m_GameDay, m_GameMonth, m_GameYear, m_GameSeason);
     }
 
@@ -97,7 +98,8 @@ public class TimeManager : MonoBehaviour
                 EventHandler.CallGameDateEvent(m_GameHour, m_GameDay, m_GameMonth, m_GameYear, m_GameSeason);
             }
 
-            EventHandler.CallGameMinuteEvent(m_GameMinute, m_GameHour);
+            // EventHandler.CallGameMinuteEvent(m_GameMinute, m_GameHour);
+            EventCenter.BroadcastListener(EventType.EventGameMinute, m_GameMinute, m_GameHour);
         }
     }
 }

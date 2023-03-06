@@ -17,7 +17,8 @@ public class UIGameTime : MonoBehaviour
     private void Awake()
     {
         // Register Action
-        EventHandler.GameMinuteEvent += OnGameMinuteEvent;
+        // EventHandler.GameMinuteEvent += OnGameMinuteEvent;
+        EventCenter.AddListener<int, int>(EventType.EventGameMinute, OnGameMinuteEvent);
         EventHandler.GameDateEvent += OnGameDateEvent;
 
         InitGameTime();
@@ -68,7 +69,8 @@ public class UIGameTime : MonoBehaviour
     private void OnDestroy()
     {
         // UnRegister Action
-        EventHandler.GameMinuteEvent -= OnGameMinuteEvent;
+        // EventHandler.GameMinuteEvent -= OnGameMinuteEvent;
+        EventCenter.RemoveListener<int, int>(EventType.EventGameMinute, OnGameMinuteEvent);
         EventHandler.GameDateEvent -= OnGameDateEvent;
     }
 }

@@ -1,3 +1,7 @@
 # Story of Seasons
-[Play](https://github.com/wangpengcheng0616/Story-of-Seasons-WebGL)
+
+******
+2D Simulation Game
+
+WebGL：[https://github.com/wangpengcheng0616/Story-of-Seasons-WebGL](https://github.com/wangpengcheng0616/Story-of-Seasons-WebGL)
  

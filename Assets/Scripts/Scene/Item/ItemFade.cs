@@ -1,7 +1,9 @@
 using DG.Tweening;
 using UnityEngine;
 
+#if UNITY_EDITOR
 // [RequireComponent(typeof(SpriteRenderer))]
+#endif
 public class ItemFade : MonoBehaviour
 {
     private SpriteRenderer[] m_SpriteRenderer;
