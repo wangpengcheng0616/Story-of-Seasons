@@ -3,11 +3,11 @@ using UnityEngine;
 
 public static class EventHandler
 {
-    public static event Action<int, int> GameMinuteEvent;
+    public static event Action<int, int, int, Season> GameMinuteEvent;
 
-    public static void CallGameMinuteEvent(int minute, int hour)
+    public static void CallGameMinuteEvent(int minute, int hour, int day, Season season)
     {
-        GameMinuteEvent?.Invoke(minute, hour);
+        GameMinuteEvent?.Invoke(minute, hour, day, season);
     }
 
     public static event Action<int, int, int, int, Season> GameDateEvent;

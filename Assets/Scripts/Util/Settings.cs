@@ -1,3 +1,5 @@
+using System;
+
 public class Settings
 {
     //Version
@@ -10,7 +12,7 @@ public class Settings
     public const float fadeOutAlpha = 1f;
 
     // GameTime
-    public const float secondThreshold = 0.05f;
+    public const float secondThreshold = 0.01f;
     public const int secondHold = 59;
     public const int minuteHold = 59;
     public const int hourHold = 23;
@@ -21,4 +23,9 @@ public class Settings
     public const string uiScene = "UIScene";
     public const string fieldScene = "FieldScene";
     public const string housecene = "HouseScene";
+
+    //Light TODO: According to Season
+    public const float lightDuration = 30f;
+    public static TimeSpan morningTime = new TimeSpan(4, 0, 0);
+    public static TimeSpan nightTime = new TimeSpan(17, 0, 0);
 }

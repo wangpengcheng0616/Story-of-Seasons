@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class TimeManager : MonoBehaviour
+public class TimeManager : MonoSigleton<TimeManager>
 {
     private int m_GameSecond, m_GameMinute, m_GameHour;
     private int m_GameDay, m_GameMonth, m_GameYear;
@@ -9,16 +10,21 @@ public class TimeManager : MonoBehaviour
     private bool m_GameTimePause;
     private float m_TikTime;
 
-    private void Awake()
+    private TimeSpan m_GameTime => new TimeSpan(m_GameHour, m_GameMinute, m_GameSecond);
+    private float m_TimeDifference;
+
+    protected override void Awake()
     {
+        base.Awake();
         InitGameTime();
     }
 
     private void Start()
     {
-        // EventHandler.CallGameMinuteEvent(m_GameMinute, m_GameHour);
-        EventCenter.BroadcastListener(EventType.EventGameMinute, m_GameMinute, m_GameHour);
+        // EventHandler.CallGameMinuteEvent(m_GameMinute, m_GameHour, m_GameDay, m_GameSeason);
+        EventCenter.BroadcastListener(EventType.EventGameMinute, m_GameMinute, m_GameHour, m_GameDay, m_GameSeason);
         EventHandler.CallGameDateEvent(m_GameHour, m_GameDay, m_GameMonth, m_GameYear, m_GameSeason);
+        EventCenter.BroadcastListener(EventType.EventGameLight, m_GameSeason, GetLightType(), m_TimeDifference);
     }
 
     private void Update()
@@ -47,7 +53,7 @@ public class TimeManager : MonoBehaviour
     {
         m_GameSecond = 0;
         m_GameMinute = 0;
-        m_GameHour = 6;
+        m_GameHour = 16;
         m_GameDay = 1;
         m_GameMonth = 1;
         m_GameYear = 2023;
@@ -92,14 +98,37 @@ public class TimeManager : MonoBehaviour
 
                             m_GameSeason = (Season)seasonNumber;
                         }
+
+                        // EventCenter.BroadcastListener(EventType.EventGameDay, m_GameDay, m_GameSeason);
                     }
                 }
 
                 EventHandler.CallGameDateEvent(m_GameHour, m_GameDay, m_GameMonth, m_GameYear, m_GameSeason);
             }
 
-            // EventHandler.CallGameMinuteEvent(m_GameMinute, m_GameHour);
-            EventCenter.BroadcastListener(EventType.EventGameMinute, m_GameMinute, m_GameHour);
+            // EventHandler.CallGameMinuteEvent(m_GameMinute, m_GameHour, m_GameDay, m_GameSeason);
+            EventCenter.BroadcastListener(EventType.EventGameMinute, m_GameMinute, m_GameHour, m_GameDay, m_GameSeason);
+
+            //Light
+            EventCenter.BroadcastListener(EventType.EventGameLight, m_GameSeason, GetLightType(), m_TimeDifference);
+        }
+    }
+
+    private LightType GetLightType()
+    {
+        if (m_GameTime >= Settings.morningTime && m_GameTime < Settings.nightTime)
+        {
+            m_TimeDifference = (float)(m_GameTime - Settings.morningTime).TotalMinutes;
+            return LightType.Morning;
+        }
+        else if (m_GameTime < Settings.morningTime || m_GameTime >= Settings.nightTime)
+        {
+            m_TimeDifference = Mathf.Abs((float)(m_GameTime - Settings.nightTime).TotalMinutes);
+            return LightType.Night;
+        }
+        else
+        {
+            return LightType.Morning;
         }
     }
 }

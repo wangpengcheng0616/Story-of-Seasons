@@ -18,7 +18,7 @@ public class UIGameTime : MonoBehaviour
     {
         // Register Action
         // EventHandler.GameMinuteEvent += OnGameMinuteEvent;
-        EventCenter.AddListener<int, int>(EventType.EventGameMinute, OnGameMinuteEvent);
+        EventCenter.AddListener<int, int, int, Season>(EventType.EventGameMinute, OnGameMinuteEvent);
         EventHandler.GameDateEvent += OnGameDateEvent;
 
         InitGameTime();
@@ -29,7 +29,7 @@ public class UIGameTime : MonoBehaviour
         GetClockImagesObj();
     }
 
-    private void OnGameMinuteEvent(int minute, int hour)
+    private void OnGameMinuteEvent(int minute, int hour, int day, Season season)
     {
         m_TimeText.text = hour.ToString("00") + ":" + minute.ToString("00");
     }
@@ -70,7 +70,7 @@ public class UIGameTime : MonoBehaviour
     {
         // UnRegister Action
         // EventHandler.GameMinuteEvent -= OnGameMinuteEvent;
-        EventCenter.RemoveListener<int, int>(EventType.EventGameMinute, OnGameMinuteEvent);
+        EventCenter.RemoveListener<int, int, int, Season>(EventType.EventGameMinute, OnGameMinuteEvent);
         EventHandler.GameDateEvent -= OnGameDateEvent;
     }
 }

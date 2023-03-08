@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
- 
+
 public class EventCenter
 {
     /// <summary>
     /// EventDictionary
     /// </summary>
     private static Dictionary<EventType, Delegate> m_EventDictionary = new Dictionary<EventType, Delegate>();
- 
+
     /// <summary>
     /// OnListenerAdding
     /// </summary>
@@ -20,7 +20,7 @@ public class EventCenter
         {
             m_EventDictionary.Add(eventType, null);
         }
- 
+
         Delegate d = m_EventDictionary[eventType];
         if (!ReferenceEquals(d, null) && d.GetType() != eventCallBack.GetType())
         {
@@ -29,7 +29,7 @@ public class EventCenter
             );
         }
     }
- 
+
     /// <summary>
     /// AddListener
     /// </summary>
@@ -38,9 +38,9 @@ public class EventCenter
     public static void AddListener(EventType eventType, EventCallBack eventCallBack)
     {
         OnListenerAdding(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack) m_EventDictionary[eventType] + eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack)m_EventDictionary[eventType] + eventCallBack;
     }
- 
+
     /// <summary>
     /// AddListener<T>
     /// </summary>
@@ -50,9 +50,9 @@ public class EventCenter
     public static void AddListener<T>(EventType eventType, EventCallBack<T> eventCallBack)
     {
         OnListenerAdding(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack<T>) m_EventDictionary[eventType] + eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack<T>)m_EventDictionary[eventType] + eventCallBack;
     }
- 
+
     /// <summary>
     /// AddListener<T1, T2>
     /// </summary>
@@ -63,9 +63,9 @@ public class EventCenter
     public static void AddListener<T1, T2>(EventType eventType, EventCallBack<T1, T2> eventCallBack)
     {
         OnListenerAdding(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack<T1, T2>) m_EventDictionary[eventType] + eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack<T1, T2>)m_EventDictionary[eventType] + eventCallBack;
     }
- 
+
     /// <summary>
     /// AddListener<T1, T2, T3>
     /// </summary>
@@ -77,9 +77,9 @@ public class EventCenter
     public static void AddListener<T1, T2, T3>(EventType eventType, EventCallBack<T1, T2, T3> eventCallBack)
     {
         OnListenerAdding(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack<T1, T2, T3>) m_EventDictionary[eventType] + eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack<T1, T2, T3>)m_EventDictionary[eventType] + eventCallBack;
     }
- 
+
     /// <summary>
     /// AddListener<T1, T2, T3, T4>
     /// </summary>
@@ -92,9 +92,9 @@ public class EventCenter
     public static void AddListener<T1, T2, T3, T4>(EventType eventType, EventCallBack<T1, T2, T3, T4> eventCallBack)
     {
         OnListenerAdding(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack<T1, T2, T3, T4>) m_EventDictionary[eventType] + eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack<T1, T2, T3, T4>)m_EventDictionary[eventType] + eventCallBack;
     }
- 
+
     /// <summary>
     /// OnListenerRemoving
     /// </summary>
@@ -121,7 +121,7 @@ public class EventCenter
             throw new Exception($"Remove Listener Error, no event code {eventType}");
         }
     }
- 
+
     /// <summary>
     /// OnListenerRemoved
     /// </summary>
@@ -133,7 +133,7 @@ public class EventCenter
             m_EventDictionary.Remove(eventType);
         }
     }
- 
+
     /// <summary>
     /// RemoveListener
     /// </summary>
@@ -142,10 +142,10 @@ public class EventCenter
     public static void RemoveListener(EventType eventType, EventCallBack eventCallBack)
     {
         OnListenerRemoving(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack) m_EventDictionary[eventType] - eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack)m_EventDictionary[eventType] - eventCallBack;
         OnListenerRemoved(eventType);
     }
- 
+
     /// <summary>
     /// RemoveListener<T>
     /// </summary>
@@ -155,10 +155,10 @@ public class EventCenter
     public static void RemoveListener<T>(EventType eventType, EventCallBack<T> eventCallBack)
     {
         OnListenerRemoving(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack<T>) m_EventDictionary[eventType] - eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack<T>)m_EventDictionary[eventType] - eventCallBack;
         OnListenerRemoved(eventType);
     }
- 
+
     /// <summary>
     /// RemoveListener<T1, T2>
     /// </summary>
@@ -169,10 +169,10 @@ public class EventCenter
     public static void RemoveListener<T1, T2>(EventType eventType, EventCallBack<T1, T2> eventCallBack)
     {
         OnListenerRemoving(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack<T1, T2>) m_EventDictionary[eventType] - eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack<T1, T2>)m_EventDictionary[eventType] - eventCallBack;
         OnListenerRemoved(eventType);
     }
- 
+
     /// <summary>
     /// RemoveListener<T1, T2, T3>
     /// </summary>
@@ -184,10 +184,10 @@ public class EventCenter
     public static void RemoveListener<T1, T2, T3>(EventType eventType, EventCallBack<T1, T2, T3> eventCallBack)
     {
         OnListenerRemoving(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack<T1, T2, T3>) m_EventDictionary[eventType] - eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack<T1, T2, T3>)m_EventDictionary[eventType] - eventCallBack;
         OnListenerRemoved(eventType);
     }
- 
+
     /// <summary>
     /// RemoveListener<T1, T2, T3, T4>
     /// </summary>
@@ -200,10 +200,10 @@ public class EventCenter
     public static void RemoveListener<T1, T2, T3, T4>(EventType eventType, EventCallBack<T1, T2, T3, T4> eventCallBack)
     {
         OnListenerRemoving(eventType, eventCallBack);
-        m_EventDictionary[eventType] = (EventCallBack<T1, T2, T3, T4>) m_EventDictionary[eventType] - eventCallBack;
+        m_EventDictionary[eventType] = (EventCallBack<T1, T2, T3, T4>)m_EventDictionary[eventType] - eventCallBack;
         OnListenerRemoved(eventType);
     }
- 
+
     /// <summary>
     /// BroadcastListener
     /// </summary>
@@ -225,7 +225,7 @@ public class EventCenter
             }
         }
     }
- 
+
     /// <summary>
     /// BroadcastListener<T>
     /// </summary>
@@ -249,7 +249,7 @@ public class EventCenter
             }
         }
     }
- 
+
     /// <summary>
     /// BroadcastListener<T1, T2>
     /// </summary>
@@ -275,7 +275,7 @@ public class EventCenter
             }
         }
     }
- 
+
     /// <summary>
     /// BroadcastListener<T1, T2, T3>
     /// </summary>
@@ -303,7 +303,7 @@ public class EventCenter
             }
         }
     }
- 
+
     /// <summary>
     /// BroadcastListener<T1, T2, T3, T4>
     /// </summary>

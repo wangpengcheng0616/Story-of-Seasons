@@ -11,4 +11,6 @@ public enum EventType
      */
     EventName = 0,
     EventGameMinute,
+    EventGameDay,
+    EventGameLight,
 }
