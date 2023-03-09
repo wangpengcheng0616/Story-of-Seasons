@@ -16,8 +16,8 @@ MonoBehaviour:
   - season: 0
     lightType: 0
     lightColor: {r: 1, g: 1, b: 1, a: 1}
-    lightIntensity: 1
+    lightIntensity: 1.1
   - season: 0
     lightType: 1
     lightColor: {r: 0.42745098, g: 0.69803923, b: 1, a: 1}
-    lightIntensity: 0.8
+    lightIntensity: 0.3

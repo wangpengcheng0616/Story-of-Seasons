@@ -53,10 +53,10 @@ public class TimeManager : MonoSigleton<TimeManager>
     {
         m_GameSecond = 0;
         m_GameMinute = 0;
-        m_GameHour = 16;
+        m_GameHour = Settings.startGameHour;
         m_GameDay = 1;
         m_GameMonth = 1;
-        m_GameYear = 2023;
+        m_GameYear = Settings.startGameYear;
         m_GameSeason = Season.Spring;
     }
 
@@ -98,8 +98,6 @@ public class TimeManager : MonoSigleton<TimeManager>
 
                             m_GameSeason = (Season)seasonNumber;
                         }
-
-                        // EventCenter.BroadcastListener(EventType.EventGameDay, m_GameDay, m_GameSeason);
                     }
                 }
 

@@ -18,6 +18,8 @@ public class Settings
     public const int hourHold = 23;
     public const int dayHold = 30;
     public const int seasonHold = 3;
+    public const int startGameYear = 2023;
+    public const int startGameHour = 16;
 
     // Scene
     public const string uiScene = "UIScene";
@@ -25,7 +27,8 @@ public class Settings
     public const string housecene = "HouseScene";
 
     //Light TODO: According to Season
-    public const float lightDuration = 30f;
+    public const float lightDuration = 240f;
+    public static LightType startLightType = LightType.Morning;
     public static TimeSpan morningTime = new TimeSpan(4, 0, 0);
     public static TimeSpan nightTime = new TimeSpan(17, 0, 0);
 }
